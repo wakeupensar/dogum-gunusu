@@ -22,133 +22,71 @@
     }
 
     .container {
-      text-align: center;
+      max-width: 700px;
+      padding: 40px 30px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      animation: scaleIn 1.2s ease;
     }
 
     h1 {
-      color: #fff;
+      text-align: center;
+      color: #ff4d6d;
       margin-bottom: 30px;
+      font-size: 32px;
       animation: fadeDown 1.2s ease;
     }
 
-    .gift {
-      width: 160px;
-      height: 160px;
-      background: #ff4d6d;
-      position: relative;
-      margin: 0 auto;
-      cursor: pointer;
-      border-radius: 12px;
-      animation: bounce 2s infinite;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    .message span {
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: lineFade 0.8s ease forwards;
     }
 
-    .gift::before {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 160px;
-      background: #fff;
-      left: 65px;
-      top: 0;
-      border-radius: 6px;
-    }
-
-    .gift::after {
-      content: '';
-      position: absolute;
-      width: 160px;
-      height: 30px;
-      background: #fff;
-      top: 65px;
-      left: 0;
-      border-radius: 6px;
-    }
-
-    .lid {
-      position: absolute;
-      width: 180px;
-      height: 40px;
-      background: #ff758f;
-      top: -40px;
-      left: -10px;
-      border-radius: 12px;
-      transition: transform 1s ease;
-    }
-
-    .open .lid {
-      transform: translateY(-120px) rotate(-15deg);
-    }
+    .message span:nth-child(1) { animation-delay: 0.4s; }
+    .message span:nth-child(2) { animation-delay: 1.2s; }
+    .message span:nth-child(3) { animation-delay: 2s; }
+    .message span:nth-child(4) { animation-delay: 2.8s; }
+    .message span:nth-child(5) { animation-delay: 3.6s; }
 
     .message {
-      max-width: 520px;
-      margin: 40px auto 0;
-      padding: 25px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 20px;
       color: #333;
-      line-height: 1.7;
-      font-size: 17px;
-      display: none;
-      animation: fadeUp 1.4s ease;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: center;
     }
 
-    .message.show {
-      display: block;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes lineFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Doğum günün için küçük bir sürpriz 🎁</h1>
+    <h1>İyi ki doğdun ❤️</h1>
 
-    <div class="gift" id="gift">
-      <div class="lid"></div>
-    </div>
-
-    <div class="message" id="message">
-      <p>
-        İyi ki doğdun güzelim… ❤️<br><br>
-        Hayatıma girdiğin günden beri her şey başka bir renkte. Gülüşünle moral buluyorum,
-        varlığınla sakinleşiyorum. Yanımdayken dünya daha az yorucu, daha az saçma.
-        <br><br>
-        Beraber güldüğümüz, sustuğumuz, hayal kurduğumuz her an benim için aşırı kıymetli.
-        İyi ki varsın, iyi ki benimlesin.
-        <br><br>
-        Yeni yaşında dilediğin her şey sana gelsin ama en çok da mutluluk…
-        Çünkü onu en çok sen hak ediyorsun.
-        <br><br>
-        Seni çok seviyorum. 💕
-      </p>
+    <div class="message">
+      <span>Hayatıma girdiğin günden beri her şey daha anlamlı.</span>
+      <span>Gülüşünle sakinleşiyorum, varlığınla güç buluyorum.</span>
+      <span>Yanındayken dünya biraz daha yavaş, biraz daha güzel.</span>
+      <span>Birlikte geçirdiğimiz her an benim için aşırı kıymetli.</span>
+      <span>İyi ki varsın, iyi ki benimlesin… seni çok seviyorum.</span>
     </div>
   </div>
-
-  <script>
-    const gift = document.getElementById('gift');
-    const message = document.getElementById('message');
-
-    gift.addEventListener('click', () => {
-      gift.classList.add('open');
-      setTimeout(() => {
-        message.classList.add('show');
-      }, 700);
-    });
-  </script>
 </body>
 </html>
