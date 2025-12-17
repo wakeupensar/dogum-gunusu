@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>İyi ki Doğdun ❤️</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .gift {
+    width: 150px;
+    height: 150px;
+    background: #e91e63;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .gift:hover {
+    transform: scale(1.05);
+  }
+
+  .ribbon {
+    position: absolute;
+    background: #fff;
+  }
+
+  .ribbon.vertical {
+    width: 20px;
+    height: 150px;
+    left: 65px;
+  }
+
+  .ribbon.horizontal {
+    height: 20px;
+    width: 150px;
+    top: 65px;
+  }
+
+  .text-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.8);
+    opacity: 0;
+    width: 80%;
+    max-width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.8s;
+  }
+
+  .text-box.show {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  h1 {
+    color: #e91e63;
+  }
+</style>
+</head>
+<body>
+
+<div class="gift" onclick="openGift()">
+  <div class="ribbon vertical"></div>
+  <div class="ribbon horizontal"></div>
+</div>
+
+<div class="text-box" id="message">
+  <h1>İyi ki Doğdun ❤️</h1>
+  <p>
+    Bu küçük site belki basit ama hissettiklerim hiç basit değil.<br><br>
+    Hayatıma girdiğin günden beri her şey daha sıcak, daha gerçek.<br>
+    Gülüşün ayrı güzel, sinirli halin bile ayrı tatlı.<br><br>
+    Yanımda olduğun her an için teşekkür ederim.<br>
+    Nice birlikte güldüğümüz, saçmaladığımız, sarıldığımız yıllara.<br><br>
+    İyi ki varsın, iyi ki benimsin.
+  </p>
+</div>
+
+<script>
+function openGift() {
+  document.querySelector('.gift').style.display = 'none';
+  document.getElementById('message').classList.add('show');
+}
+</script>
+
+</body>
+</html>
